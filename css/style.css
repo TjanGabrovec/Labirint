@@ -1,0 +1,196 @@
+html, body {
+    margin: 0;
+    overflow: hidden;
+    height: 100%;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/bg1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    z-index: -1; /* Position the background behind content */
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Črna prosojna plast */
+    z-index: -1; /* Prekrivni sloj nad GIF-om */
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.Title {
+    font-family: 'Times new Roman' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.midFrame {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 25%;
+    height: 35%;
+    transform: translate(-50%, -50%); /* Center */
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 8px 40px rgba(255, 255, 255, 0.3);
+    border: 4px solid rgba(62, 62, 62, 0.5);
+}
+
+.midFrame p {
+    font-size: 30px; /* Adjust the font size as needed */
+    margin: -10%; /* Remove margin to eliminate gap */
+    padding: 0%; /* Remove padding to eliminate any additional space */
+}
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 5%;
+    position: fixed; /* Ensure it stays fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.menu-button {
+    font-size: 30px;
+    width: 90%;
+    height: 5%;
+    background-color: #3b3b3b;
+    color: white;
+    border: 2px solid #b3b3b3;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    padding: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 1);
+}
+
+.menu-button:hover {
+    background-color: #af3f3f;
+    transform: scale(1.05);
+}
+
+.menu-button:active {
+    background-color: #8f2f2f;
+    transform: scale(0.98);
+}
+
+/* Exit */
+.fade-to-black {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0;
+    transition: opacity 2s ease;
+    z-index: 9999;
+}
+
+.goodbye-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-family: 'Times New Roman', Arial, sans-serif;
+    opacity: 0; /* Initially hidden */
+    animation: fadeIn 2s forwards; /* Apply fade-in effect */
+    z-index: 10000;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Custom CSS for SweetAlert */
+.swal2-popup {
+    z-index: -1;
+    font-family: 'Times New Roman', serif !important;
+    background-color: #2b2b2b;
+    color: rgb(247, 247, 247);
+    border-radius: 12px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.swal2-title {
+    font-size: 2rem;
+    color: #f5f5f5;
+}
+
+.swal2-content {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.swal2-button {
+    background-color: #af3f3f;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    padding: 10px 20px;
+}
+
+.swal2-button:hover {
+    background-color: #8f2f2f;
+}
+
+.swal2-button:focus {
+    outline: none;
+}
+
+.swal2-cancel {
+    background-color: #3b3b3b;
+    color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.swal2-cancel:hover {
+    background-color: #292929;
+}
+
+/* Prevent the body from shifting when SweetAlert is shown */
+body.swal2-shown {
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Add smooth transition when SweetAlert modal is opened */
+.swal2-container {
+    transition: transform 0.3s ease;
+}
